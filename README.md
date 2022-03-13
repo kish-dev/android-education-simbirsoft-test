@@ -1,1 +1,7 @@
-# android-education-simbirsoft-test
+# Тестовое задание на весенний интенсив
+
+Архитектурный паттерн - MVVM, при разработке я придерживался SOLID и Clean Architecture
+
+Стек:
+* Room - для локального хранилища в JSON
+* Hilt - для DI
