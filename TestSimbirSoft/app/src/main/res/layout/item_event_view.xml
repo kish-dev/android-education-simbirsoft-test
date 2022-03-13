@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="16dp"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_event_view__time_tv"
+        style="@style/Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="10:00-01:00"
+        android:layout_marginStart="16dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_event_view__event_name_tv"
+        style="@style/Text.EventName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Название дела"
+        android:layout_marginHorizontal="16dp" />
+
+</LinearLayout>
