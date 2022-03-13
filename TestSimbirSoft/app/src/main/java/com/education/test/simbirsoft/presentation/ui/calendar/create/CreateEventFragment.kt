@@ -77,7 +77,7 @@ class CreateEventFragment : Fragment() {
         timeSpinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
-                itemSelected: View, selectedItemPosition: Int, selectedId: Long
+                itemSelected: View?, selectedItemPosition: Int, selectedId: Long
             ) {
                 time = resources.getStringArray(R.array.time)[selectedItemPosition]
             }
