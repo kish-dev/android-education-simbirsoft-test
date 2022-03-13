@@ -66,16 +66,6 @@ fun EventEntity.mapToDomain(): Event {
     )
 }
 
-fun Event.toEntity(): EventEntity {
-    return EventEntity(
-        id = null,
-        dateStart = unixDateStart,
-        dateFinish = unixDateFinish,
-        name = name,
-        description = description
-    )
-}
-
 class JSONConverterEvent {
     @TypeConverter
     fun fromEventEntity(event: EventEntity?): String {
