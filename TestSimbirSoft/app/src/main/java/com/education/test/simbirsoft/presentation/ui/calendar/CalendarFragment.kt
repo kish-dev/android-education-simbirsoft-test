@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -28,7 +29,7 @@ class CalendarFragment : Fragment() {
 
     private var calendarView: CalendarView? = null
     private var eventRecyclerView: RecyclerView? = null
-    private var plusIcon: FloatingActionButton? = null
+    private var plusIcon: AppCompatButton? = null
 
     private val eventListAdapter by lazy {
         EventListAdapter(
@@ -111,8 +112,4 @@ class CalendarFragment : Fragment() {
         viewModel.initFirstState()
     }
 
-    companion object {
-        private val TAG = CalendarFragment::class.simpleName
-        private const val EXTRA_DATE = "extra_date"
-    }
 }

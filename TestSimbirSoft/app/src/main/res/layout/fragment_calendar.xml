@@ -1,38 +1,43 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.education.test.simbirsoft.presentation.ui.calendar.CalendarFragment">
 
     <com.applandeo.materialcalendarview.CalendarView
         android:id="@+id/fragment_calendar__calendar_view"
         style="@style/CalendarStyle"
         android:layout_width="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_height="wrap_content" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fragment_calendar__plus_icon"
+        android:background="@drawable/rounded_button_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:paddingHorizontal="8dp"
+        android:contentDescription="@string/ic_plus"
+        android:text="@string/add_event"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_calendar__calendar_view" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fragment_calendar__recycler_view"
         style="@style/CalendarRecyclerView"
         android:layout_width="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_calendar__calendar_view"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/item_event_view" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fragment_calendar__plus_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:src="@drawable/ic_plus"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_calendar__plus_icon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/ic_plus" />
+        tools:listitem="@layout/item_event_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

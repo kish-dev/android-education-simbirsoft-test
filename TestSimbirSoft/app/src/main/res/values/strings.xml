@@ -7,6 +7,7 @@
     <string name="enter_description">enter_description</string>
     <string name="create">Create</string>
     <string name="warning_add_name">Please add event name</string>
+    <string name="add_event">Add event</string>
 
     <string-array name="time">
         <item>00:00 - 01:00</item>
