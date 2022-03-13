@@ -1,9 +1,24 @@
 package com.education.test.simbirsoft.utils
 
+import android.util.Log
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.util.*
+
 class Utils {
     fun getCurrentDate(): String {
-        val currentTime = System.currentTimeMillis() / 1000
-        return (currentTime - (currentTime - currentTime / 86400L * 86400L)).toString()
+        val calendar = Calendar.getInstance()
+        val dateStart = LocalDateTime.of(
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH) + 1,
+            calendar.get(Calendar.DAY_OF_MONTH),
+            0,
+            0,
+            0,
+        )
+
+        return (dateStart.atZone(ZoneId.systemDefault()).toInstant()
+            .toEpochMilli() / 1000L).toString()
     }
 
     companion object {

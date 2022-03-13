@@ -27,7 +27,6 @@ class CalendarViewModel @Inject constructor(
 
     fun getEventListByDate(date: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            Log.d("initFirstState", "getEventListByDate: $date")
             val eventListResult = interactor.getListOfEventByDate(date)
             withContext(Dispatchers.Main) {
                 _eventList.value = eventListResult

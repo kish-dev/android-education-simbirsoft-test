@@ -1,7 +1,9 @@
 package com.education.test.simbirsoft.data.repository
 
+import android.util.Log
 import com.education.test.simbirsoft.data.db.EventDao
 import com.education.test.simbirsoft.data.db.EventEntity
+import com.education.test.simbirsoft.utils.Utils
 import javax.inject.Inject
 
 class LocalRepositoryImpl @Inject constructor(private val eventDao: EventDao) :
@@ -10,7 +12,7 @@ class LocalRepositoryImpl @Inject constructor(private val eventDao: EventDao) :
     IDetailsRepository {
 
     override suspend fun getListOfEventByDate(date: String): List<EventEntity> {
-        val endDate = (date.toLong() + oneDay).toString()
+        val endDate = (date.toLong() + Utils.ONE_DAY).toString()
         return eventDao.getEventListByDate(date, endDate)
     }
 
@@ -22,7 +24,4 @@ class LocalRepositoryImpl @Inject constructor(private val eventDao: EventDao) :
         return eventDao.getEvent(eventId)
     }
 
-    companion object {
-        private const val oneDay = 86400L
-    }
 }

@@ -95,7 +95,7 @@ class CreateEventFragment : Fragment() {
                     date = date,
                     time = time,
                     name = nameEt?.text.toString(),
-                    description = descriptionEt?.text.toString()
+                    description = descriptionEt?.text.toString() ?: ""
                 )
                 requireActivity().supportFragmentManager.popBackStack()
             }

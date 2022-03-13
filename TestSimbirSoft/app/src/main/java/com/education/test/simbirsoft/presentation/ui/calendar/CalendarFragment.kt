@@ -65,7 +65,6 @@ class CalendarFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Log.d(TAG, "onResume: ")
         initFirstState()
     }
 
@@ -98,7 +97,6 @@ class CalendarFragment : Fragment() {
 
         calendarView?.setOnDayClickListener { eventsDates ->
             date = (eventsDates.calendar.timeInMillis / 1000).toString()
-            Log.d(TAG, "initFirstState: selectedDate=$date")
             viewModel.getEventListByDate(date)
         }
 
@@ -119,6 +117,5 @@ class CalendarFragment : Fragment() {
 
     companion object {
         private val TAG = CalendarFragment::class.simpleName
-        private const val oneDay = 86400L
     }
 }

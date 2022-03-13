@@ -5,6 +5,9 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 @Entity(
@@ -44,7 +47,11 @@ data class Event(
 )
 
 fun String.simpleParseUnixTime(): String {
-    return ((this.toLong() - this.toLong() / 86400L * 86400L) / 3600).toString()
+    val dateInLong = this.toLong() * 1000L
+    val instant = Instant.ofEpochMilli(dateInLong)
+    val date = LocalDateTime.ofInstant(instant, ZoneId.systemDefault())
+    val time = date.atZone(ZoneId.ofOffset("UTC", ZoneOffset.of("+00"))).toInstant().toEpochMilli() / 1000L
+    return (((time - time / 86400L * 86400L) / 3600).toString())
 }
 
 fun EventEntity.mapToDomain(): Event {
