@@ -1,7 +1,6 @@
 package com.education.test.simbirsoft.presentation.ui.calendar
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +16,6 @@ import com.education.test.simbirsoft.presentation.ui.calendar.create.CreateEvent
 import com.education.test.simbirsoft.presentation.ui.calendar.details.DetailEventFragment
 import com.education.test.simbirsoft.presentation.ui.calendar.details.EventListAdapter
 import com.education.test.simbirsoft.presentation.view_models.calendar.CalendarViewModel
-import com.education.test.simbirsoft.utils.Utils
 import com.education.test_simbirsoft.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,6 +46,10 @@ class CalendarFragment : Fragment() {
         )
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,11 +62,6 @@ class CalendarFragment : Fragment() {
         initViews(view)
         initObservers()
         setOnClickListeners()
-        initFirstState()
-    }
-
-    override fun onResume() {
-        super.onResume()
         initFirstState()
     }
 
@@ -93,8 +90,7 @@ class CalendarFragment : Fragment() {
 
     private fun setOnClickListeners() {
 
-        var date: String
-
+        var date = ""
         calendarView?.setOnDayClickListener { eventsDates ->
             date = (eventsDates.calendar.timeInMillis / 1000).toString()
             viewModel.getEventListByDate(date)
@@ -112,10 +108,11 @@ class CalendarFragment : Fragment() {
     }
 
     private fun initFirstState() {
-        viewModel.getEventListByDate(Utils().getCurrentDate())
+        viewModel.initFirstState()
     }
 
     companion object {
         private val TAG = CalendarFragment::class.simpleName
+        private const val EXTRA_DATE = "extra_date"
     }
 }
